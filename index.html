@@ -1,0 +1,775 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>آزمون اقتصاد دهم انسانی |‌ دبیر : مریم علی اکبری</title>
+<style>
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+background: linear-gradient(145deg, #e9f5e6 0%, #c8e6d9 100%);
+font-family: 'Vazirmatn', 'IRAN Sans', 'Segoe UI', Tahoma, 'Traditional Arabic', sans-serif;
+padding: 30px 20px;
+color: #1e3c2c;
+}
+
+.exam-container {
+max-width: 1100px;
+margin: 0 auto;
+background: #fffef7;
+border-radius: 32px;
+box-shadow: 0 20px 40px rgba(0, 30, 0, 0.2);
+overflow: hidden;
+border: 1px solid #cddca7;
+}
+
+.flower-border {
+background: #fdf8e7;
+padding: 12px 20px 8px;
+text-align: center;
+border-bottom: 2px solid #f3c26f;
+font-size: 1.2rem;
+letter-spacing: 2px;
+color: #b45f2a;
+font-weight: bold;
+}
+
+.dedication {
+background: #fef1cf;
+padding: 20px;
+text-align: center;
+border-bottom: 5px solid #d4af37;
+background-image: radial-gradient(circle at 10% 30%, rgba(255,215,150,0.2) 2%, transparent 2.5%);
+background-size: 28px 28px;
+}
+
+.dedication h2 {
+color: #8b3c1c;
+font-size: 1.6rem;
+font-weight: 900;
+margin-bottom: 8px;
+text-shadow: 1px 1px 0 #ffe0a3;
+}
+
+.dedication p {
+font-size: 1.2rem;
+color: #2c4722;
+font-weight: 500;
+}
+
+.teacher-info {
+background: #e8f0e3;
+padding: 14px 20px;
+border-radius: 40px;
+margin: 15px 20px;
+display: flex;
+justify-content: space-between;
+flex-wrap: wrap;
+gap: 12px;
+font-weight: bold;
+border-right: 8px solid #6f9e3f;
+box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* صفحه ورود اطلاعات */
+.login-screen {
+background: #fffef7;
+padding: 30px 25px 45px;
+text-align: center;
+transition: all 0.3s ease;
+}
+
+.login-box {
+background: #f8fbe7;
+border-radius: 48px;
+padding: 30px 20px;
+max-width: 500px;
+margin: 20px auto;
+box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+border: 1px solid #caddae;
+}
+
+.login-box label {
+font-size: 1.3rem;
+font-weight: bold;
+display: block;
+margin-bottom: 15px;
+}
+
+#studentNameInput {
+width: 80%;
+padding: 12px 20px;
+font-size: 1.1rem;
+border-radius: 60px;
+border: 2px solid #b3cf99;
+text-align: center;
+font-family: inherit;
+margin-bottom: 20px;
+}
+
+.btn-start {
+background: #4c7a34;
+color: white;
+font-size: 1.2rem;
+padding: 10px 28px;
+border: none;
+border-radius: 40px;
+cursor: pointer;
+font-weight: bold;
+}
+
+.warning-msg {
+color: #c0392b;
+background: #ffe6e5;
+border-radius: 32px;
+padding: 8px;
+margin-top: 12px;
+font-size: 0.9rem;
+}
+
+/* بخش سوالات (پنهان اول) */
+.questions-section {
+display: none;
+}
+
+.student-row {
+background: white;
+margin: 20px 25px;
+padding: 12px 18px;
+border-radius: 28px;
+border: 1px solid #bdd99b;
+display: flex;
+align-items: baseline;
+flex-wrap: wrap;
+gap: 10px;
+font-size: 1.1rem;
+}
+
+.question-card {
+background: #ffffffd9;
+margin: 22px 0;
+border-radius: 28px;
+padding: 18px 20px;
+border: 1px solid #cbe4b4;
+transition: all 0.2s;
+box-shadow: 0 4px 8px rgba(0,0,0,0.03);
+}
+
+.q-text {
+font-size: 1.1rem;
+font-weight: 600;
+margin-bottom: 15px;
+background: #f6fbed;
+padding: 8px 15px;
+border-radius: 40px;
+display: inline-block;
+}
+
+.options {
+display: flex;
+flex-wrap: wrap;
+gap: 20px;
+margin-top: 12px;
+margin-right: 15px;
+}
+
+.option {
+display: flex;
+align-items: center;
+gap: 8px;
+background: #fafef5;
+padding: 6px 18px;
+border-radius: 60px;
+border: 1px solid #cfe2bd;
+cursor: pointer;
+transition: 0.1s;
+}
+
+.option.selected {
+background: #cbe6b0;
+border-color: #6f9e3f;
+box-shadow: 0 2px 5px rgba(105, 150, 40, 0.3);
+}
+
+input[type="radio"] {
+accent-color: #548c2f;
+width: 18px;
+height: 18px;
+margin-left: 5px;
+cursor: pointer;
+}
+
+.submit-area {
+text-align: center;
+margin: 20px 0 25px;
+}
+
+.btn-submit {
+background: #4c7a34;
+color: white;
+font-size: 1.3rem;
+font-weight: bold;
+padding: 12px 32px;
+border: none;
+border-radius: 48px;
+cursor: pointer;
+transition: 0.2s;
+box-shadow: 0 5px 0 #2c4d1c;
+font-family: inherit;
+}
+
+.flower-result {
+background: #fffaf0;
+border-radius: 48px;
+margin: 15px 25px 30px;
+padding: 20px;
+text-align: center;
+border: 2px dashed #ffbd71;
+transition: all 0.5s ease;
+}
+
+.score-board {
+font-size: 1.8rem;
+font-weight: bold;
+color: #dc7f2c;
+background: #fff0db;
+display: inline-block;
+padding: 10px 25px;
+border-radius: 60px;
+margin: 10px 0;
+}
+
+.flower-rain {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+gap: 18px;
+margin-top: 20px;
+padding: 15px;
+background: rgba(255,245,210,0.7);
+border-radius: 64px;
+}
+
+.flower-item {
+background: #ffe2a4;
+border-radius: 100px;
+padding: 8px 16px;
+font-size: 1.4rem;
+display: inline-flex;
+align-items: center;
+gap: 6px;
+box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+animation: softPop 0.3s ease;
+}
+
+@keyframes softPop {
+0% { transform: scale(0.8); opacity: 0; }
+100% { transform: scale(1); opacity: 1; }
+}
+
+.correct-highlight {
+background: #eaffdd;
+border-right: 8px solid #ffbc6e;
+}
+
+footer {
+text-align: center;
+font-size: 0.8rem;
+padding: 18px;
+background: #dedfc7;
+color: #3b5c2a;
+border-top: 1px solid #c2d9aa;
+}
+
+@media (max-width: 650px) {
+.options {
+flex-direction: column;
+gap: 10px;
+}
+}
+</style>
+</head>
+<body>
+<div class="exam-container" id="examContainer">
+<div class="flower-border">
+<span>🌸</span> <span>🌼</span> <span>🌻</span> آزمون اقتصاد دهم انسانی <span>🌷</span> <span>🌸</span> <span>🌺</span>
+</div>
+
+<div class="dedication">
+<div style="font-size: 2rem;">🌸🕊️🌸</div>
+</div>
+
+<div class="teacher-info">
+<span>✏️ طراح آزمون: مریم علی اکبری</span>
+<span>🏫 دبیر دبیرستان ۱۵ خرداد</span>
+<span>📍 شهرستان بجنورد</span>
+</div>
+
+<!-- صفحه ورود اطلاعات (لاگین) -->
+<div id="loginPanel" class="login-screen">
+<div class="login-box">
+<label>📝 ثبت نام و شروع آزمون</label>
+<input type="text" id="studentNameInput" placeholder="نام و نام خانوادگی خود را وارد کنید" autocomplete="off">
+<button id="startExamBtn" class="btn-start">🚪 ورود به صفحه سوالات 🚪</button>
+<div id="loginWarning" class="warning-msg" style="display: none;"></div>
+<div style="margin-top: 20px; font-size:0.8rem;">* پس از ثبت نام، امکان شرکت مجدد وجود ندارد.</div>
+</div>
+</div>
+
+<!-- بخش سوالات (در ابتدا پنهان) -->
+<div id="questionsSection" class="questions-section">
+<div class="student-row" id="displayStudentNameDiv">
+<label>👤 دانش‌آموز:</label>
+<span id="displayStudentNameSpan" style="font-weight:bold; background:#e1f0d3; padding:5px 15px; border-radius:30px;"></span>
+</div>
+
+<div class="questions-area" style="padding: 10px 25px 20px;">
+<div style="background:#f2f8ea; border-radius: 40px; padding: 8px 15px; margin-bottom: 15px;">
+<span>⏳ مدت: ۲۰ دقیقه &nbsp;|&nbsp; ⏱️ زمان باقی‌مانده: <strong id="timerDisplay">20:00</strong> &nbsp;|&nbsp; 📊 هر سوال ۱ نمره &nbsp;|&nbsp; سوالات از کتاب اقتصاد دهم</span>
+</div>
+<div id="questionsContainer"></div>
+<div class="submit-area">
+<button class="btn-submit" id="checkBtn">✨ تصحیح آزمون و گلباران ✨</button>
+</div>
+<div id="resultArea" class="flower-result" style="display: none;"></div>
+</div>
+</div>
+
+<footer>
+🌸 موفق و پیروز باشید | با دقت پاسخ دهید 🌸
+</footer>
+</div>
+
+<script>
+// ---------- 15 سوال (مبحث تقریب و درصد) ----------
+const questionsData = [
+{ text: "اگر اقتصاد در نقطه‌ای روی مرز امکانات تولید باشد، کدام گزاره درست است؟",
+options: ["همه منابع به طور کارا استفاده می‌شوند", "امکان افزایش تولید هر دو کالا وجود دارد", "هزینه فرصت صفر است", "بیکاری افزایش می‌یابد"],
+correct: 0 },
+
+{ text: "حرکت از نقطه‌ای داخل منحنی امکانات تولید به روی منحنی نشان‌دهنده چیست؟",
+options: ["افزایش منابع تولید", "استفاده بهتر از منابع موجود", "کاهش فناوری", "افزایش هزینه فرصت"],
+correct: 1 },
+
+{ text: "هزینه فرصت در اقتصاد به چه معناست؟",
+options: ["هزینه‌ای که دولت تعیین می‌کند", "هزینه مالی تولید", "ارزش بهترین گزینه‌ای که از آن صرف‌نظر می‌شود", "هزینه خرید مواد اولیه"],
+correct: 2 },
+
+{ text: "اگر قیمت یک کالا افزایش یابد و مقدار تقاضا کاهش پیدا کند، این بیانگر چیست؟",
+options: ["قانون عرضه", "قانون تقاضا", "قانون بودجه", "قانون تجارت"],
+correct: 1 },
+
+{ text: "کدام عامل باعث جابه‌جایی منحنی تقاضا می‌شود؟",
+options: ["تغییر قیمت همان کالا", "افزایش درآمد مصرف‌کنندگان", "کاهش مقدار تقاضا", "افزایش قیمت کالا"],
+correct: 1 },
+
+{ text: "اگر دولت قیمت سقف پایین‌تر از قیمت تعادلی تعیین کند چه اتفاقی می‌افتد؟",
+options: ["مازاد عرضه", "کمبود کالا", "تعادل بازار", "افزایش فوری تولید"],
+correct: 1 },
+
+{ text: "کدام مورد نمونه‌ای از کارآفرینی است؟",
+options: ["کار در اداره دولتی", "راه‌اندازی کسب‌وکار جدید با پذیرش ریسک", "خرید کالا برای مصرف", "پس‌انداز در بانک"],
+correct: 1 },
+
+{ text: "اگر کشوری کالایی را با هزینه فرصت کمتر تولید کند چه مزیتی دارد؟",
+options: ["مزیت نسبی", "مزیت مطلق", "مزیت دولتی", "مزیت مصرفی"],
+correct: 0 },
+
+{ text: "تورم چه اثری بر قدرت خرید پول دارد؟",
+options: ["افزایش قدرت خرید", "کاهش قدرت خرید", "بدون تغییر", "دو برابر شدن قدرت خرید"],
+correct: 1 },
+
+{ text: "در رکود اقتصادی معمولاً چه اتفاقی رخ می‌دهد؟",
+options: ["افزایش تولید", "کاهش بیکاری", "کاهش فعالیت اقتصادی", "افزایش صادرات"],
+correct: 2 },
+
+{ text: "کدام گزینه نمونه‌ای از کالای عمومی است؟",
+options: ["لباس", "نان", "آموزش عمومی", "تلفن همراه"],
+correct: 2 },
+
+{ text: "پس‌انداز در اقتصاد خانواده چه معنایی دارد؟",
+options: ["خرج کردن بیشتر", "ذخیره بخشی از درآمد برای آینده", "خرید کالاهای لوکس", "افزایش بدهی"],
+correct: 1 },
+
+{ text: "اگر فناوری تولید افزایش یابد چه اتفاقی می‌افتد؟",
+options: ["عرضه افزایش می‌یابد", "عرضه کاهش می‌یابد", "تقاضا صفر می‌شود", "بازار حذف می‌شود"],
+correct: 0 },
+
+{ text: "اگر درآمد مصرف‌کننده افزایش یابد، تقاضا برای کالاهای عادی چه می‌شود؟",
+options: ["افزایش می‌یابد", "کاهش می‌یابد", "ثابت می‌ماند", "صفر می‌شود"],
+correct: 0 },
+
+{ text: "بودجه‌بندی در خانواده به چه معناست؟",
+options: ["خرج کردن بدون برنامه", "تقسیم درآمد بین نیازها و خواسته‌ها", "افزایش بدهی", "حذف پس‌انداز"],
+correct: 1 },
+
+{ text: "اگر قیمت تعادلی یک کالا افزایش یابد چه چیزی محتمل است؟",
+options: ["عرضه کاهش یافته", "تقاضا صفر شده", "بازار حذف شده", "قیمت ثابت مانده"],
+correct: 0 },
+
+{ text: "اگر کشوری بر اساس مزیت نسبی تولید کند چه نتیجه‌ای دارد؟",
+options: ["کاهش تجارت", "افزایش کارایی اقتصادی", "افزایش هزینه‌ها", "از بین رفتن تولید"],
+correct: 1 },
+
+{ text: "رکود تورمی به چه معناست؟",
+options: ["تورم کم و اشتغال بالا", "تورم بالا و بیکاری بالا", "قیمت ثابت", "رشد اقتصادی زیاد"],
+correct: 1 },
+
+{ text: "اگر خانواده‌ای خرید کالای غیرضروری را برای پرداخت هزینه درمان کنار بگذارد، چه مفهومی نشان داده می‌شود؟",
+options: ["عرضه", "تورم", "اولویت‌بندی نیازها", "تجارت"],
+correct: 2 },
+
+{ text: "اگر منابع تولید افزایش یابد اما فناوری ثابت بماند، مرز امکانات تولید چه می‌شود؟",
+options: ["به داخل منتقل می‌شود", "به خارج منتقل می‌شود", "حذف می‌شود", "ثابت می‌ماند"],
+correct: 1 }
+];
+
+let userAnswers = [];
+let examLocked = false;
+let currentStudentName = "";
+let examCompleted = false;
+let timeUp = false;
+
+let currentQuestions = [];
+
+// کلید ذخیره در localStorage
+const STORAGE_KEY = "math_exam_karkheh";
+const STARTED_KEY = "math_exam_karkheh_started_names";
+const COMPLETED_KEY = "math_exam_karkheh_completed_names";
+
+// تایمر
+const EXAM_DURATION_MS = 20 * 60 * 1000;
+let examStartTime = null;
+let timerInterval = null;
+
+function getNameList(key) {
+const raw = localStorage.getItem(key);
+if (!raw) return [];
+try {
+const arr = JSON.parse(raw);
+return Array.isArray(arr) ? arr : [];
+} catch (e) {
+return [];
+}
+}
+
+function addNameToList(key, name) {
+const list = getNameList(key);
+if (!list.includes(name)) {
+list.push(name);
+localStorage.setItem(key, JSON.stringify(list));
+}
+}
+
+function saveToLocalStorage(studentName, completedFlag, answersArray) {
+const data = {
+student: studentName,
+completed: completedFlag,
+answers: answersArray,
+timestamp: new Date().toISOString()
+};
+localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+function loadFromLocalStorage() {
+const raw = localStorage.getItem(STORAGE_KEY);
+if (!raw) return null;
+try {
+return JSON.parse(raw);
+} catch(e) { return null; }
+}
+
+function clearAttemptStorage() {
+localStorage.removeItem(STORAGE_KEY);
+}
+
+function shuffleArray(arr) {
+for (let i = arr.length - 1; i > 0; i--) {
+const j = Math.floor(Math.random() * (i + 1));
+[arr[i], arr[j]] = [arr[j], arr[i]];
+}
+return arr;
+}
+
+function prepareQuestionsForStudent() {
+const copied = questionsData.map(q => ({
+text: q.text,
+options: q.options.slice(),
+correct: q.correct
+}));
+
+shuffleArray(copied);
+
+copied.forEach(q => {
+const opts = q.options.map((opt, idx) => ({ opt, idx }));
+shuffleArray(opts);
+q.options = opts.map(o => o.opt);
+q.correct = opts.findIndex(o => o.idx === q.correct);
+});
+
+return copied;
+}
+
+function formatTime(ms) {
+const totalSeconds = Math.max(0, Math.floor(ms / 1000));
+const m = Math.floor(totalSeconds / 60).toString().padStart(2, "0");
+const s = (totalSeconds % 60).toString().padStart(2, "0");
+return `${m}:${s}`;
+}
+
+function lockQuestionsByTime() {
+timeUp = true;
+examLocked = true;
+document.querySelectorAll('input[type="radio"]').forEach(radio => radio.disabled = true);
+const timerDisplay = document.getElementById('timerDisplay');
+if (timerDisplay) timerDisplay.innerText = "پایان وقت";
+alert("⏰ زمان آزمون به پایان رسید! دیگر امکان پاسخ‌دهی نیست و فقط می‌توانید ثبت کنید.");
+}
+
+function startTimer() {
+examStartTime = Date.now();
+const timerDisplay = document.getElementById('timerDisplay');
+if (timerDisplay) timerDisplay.innerText = "20:00";
+if (timerInterval) clearInterval(timerInterval);
+timerInterval = setInterval(() => {
+const elapsed = Date.now() - examStartTime;
+const remaining = EXAM_DURATION_MS - elapsed;
+if (remaining <= 0) {
+clearInterval(timerInterval);
+lockQuestionsByTime();
+return;
+}
+if (timerDisplay) timerDisplay.innerText = formatTime(remaining);
+}, 1000);
+}
+
+// رندر سوالات (بر اساس userAnswers فعلی)
+function renderQuestions() {
+const container = document.getElementById('questionsContainer');
+if (!container) return;
+container.innerHTML = '';
+currentQuestions.forEach((q, idx) => {
+const qCard = document.createElement('div');
+qCard.className = 'question-card';
+qCard.id = `qCard_${idx}`;
+const qNumber = idx + 1;
+const qTextSpan = document.createElement('div');
+qTextSpan.className = 'q-text';
+qTextSpan.innerHTML = `📌 سوال ${qNumber} : ${q.text}`;
+const optionsDiv = document.createElement('div');
+optionsDiv.className = 'options';
+
+q.options.forEach((opt, optIdx) => {
+const optLabel = document.createElement('label');
+optLabel.className = 'option';
+const radio = document.createElement('input');
+radio.type = 'radio';
+radio.name = `q${idx}`;
+radio.value = optIdx;
+if (examCompleted || examLocked || timeUp) radio.disabled = true;
+radio.addEventListener('change', (e) => {
+if (examCompleted || timeUp) return;
+userAnswers[idx] = parseInt(radio.value);
+const allOpts = optLabel.parentElement.querySelectorAll('.option');
+allOpts.forEach(op => op.classList.remove('selected'));
+optLabel.classList.add('selected');
+const cardDiv = document.getElementById(`qCard_${idx}`);
+if(cardDiv) cardDiv.classList.remove('correct-highlight');
+const tempData = {
+student: currentStudentName,
+completed: false,
+answers: userAnswers.slice(),
+timestamp: new Date().toISOString()
+};
+localStorage.setItem(STORAGE_KEY, JSON.stringify(tempData));
+});
+if(userAnswers[idx] === optIdx && !examCompleted) {
+radio.checked = true;
+optLabel.classList.add('selected');
+}
+const spanText = document.createTextNode(` ${opt} `);
+optLabel.appendChild(radio);
+optLabel.appendChild(spanText);
+optionsDiv.appendChild(optLabel);
+});
+qCard.appendChild(qTextSpan);
+qCard.appendChild(optionsDiv);
+container.appendChild(qCard);
+});
+}
+
+// تصحیح و گلباران (نمایش نتیجه و ذخیره نهایی)
+function evaluateAndFlower() {
+if (examCompleted) {
+alert("شما قبلاً در این آزمون شرکت کرده‌اید! امکان تصحیح مجدد وجود ندارد.");
+return;
+}
+let allAnswered = true;
+for(let i=0; i<userAnswers.length; i++) {
+if(userAnswers[i] === null) allAnswered = false;
+}
+if(!allAnswered) {
+if(!confirm("⚠️ برخی سوالات پاسخ داده نشده است. آیا مایل به ادامه تصحیح هستید؟ پاسخ‌های خالی نادرست محسوب می‌شوند.")) {
+return;
+}
+}
+let correctCount = 0;
+let resultsDetail = [];
+for(let i=0; i<currentQuestions.length; i++) {
+const isCorrect = (userAnswers[i] !== null && userAnswers[i] === currentQuestions[i].correct);
+if(isCorrect) correctCount++;
+resultsDetail.push({
+index: i,
+isCorrect: isCorrect,
+correctOptionIndex: currentQuestions[i].correct,
+userSelected: userAnswers[i]
+});
+}
+const totalScore = correctCount;
+const percentScore = (correctCount / currentQuestions.length) * 100;
+
+// نمایش نتیجه
+const resultDiv = document.getElementById('resultArea');
+resultDiv.style.display = 'block';
+let flowerHtml = `<div style="font-size:1.5rem; font-weight:bold;">🌸🌼🌺 گلباران پاسخ‌های درست ${currentStudentName} جان 🌺🌸🌼</div>`;
+flowerHtml += `<div class="score-board">✨ نمره: ${totalScore} از ${currentQuestions.length} ✨<br> (${correctCount} پاسخ صحیح از ${currentQuestions.length})</div>`;
+
+if(correctCount === currentQuestions.length) {
+flowerHtml += `<div style="background:#c8e6b5; border-radius: 48px; padding: 12px; margin: 10px 0;">🎉 آفرین ${currentStudentName}! پاسخ همه سوالات درست است 🎉 🌟🌟🌟</div>`;
+} else if(correctCount >= currentQuestions.length-3) {
+flowerHtml += `<div style="background:#e2f0ce; border-radius: 40px; padding: 8px;">💪 ${currentStudentName} عالی بود! کمی دقت بیشتر عالی می‌شوی 💪</div>`;
+} else {
+flowerHtml += `<div style="background:#ffeedd; border-radius: 40px; padding: 8px;">📚 ${currentStudentName} جان، با تمرین بیشتر به موفقیت می‌رسی، به پاسخ‌های درست دقت کن 🌷</div>`;
+}
+
+let flowerItems = [];
+for(let i=0; i<currentQuestions.length; i++) {
+if(resultsDetail[i].isCorrect) {
+const flowersArr = ["🌸", "🌼", "🌻", "🌺", "🪷", "💐", "🌷"];
+const fl = flowersArr[i % flowersArr.length];
+flowerItems.push(`<div class="flower-item">${fl} سوال ${i+1} صحیح ${fl}</div>`);
+} else {
+const correctAnsText = currentQuestions[i].options[currentQuestions[i].correct];
+flowerItems.push(`<div style="background:#ffe0db; border-radius: 36px; padding: 6px 12px; font-size:0.9rem;">❌ سوال ${i+1} | پاسخ صحیح: ${correctAnsText}</div>`);
+}
+}
+flowerHtml += `<div class="flower-rain">${flowerItems.join('')}</div>`;
+flowerHtml += `<hr><div style="font-size:0.9rem; text-align:right; background:#faf1df; border-radius: 32px; padding: 12px;"><strong>📖 پاسخنامه صحیح:</strong><br>`;
+for(let i=0; i<currentQuestions.length; i++) {
+const correctOpt = currentQuestions[i].options[currentQuestions[i].correct];
+flowerHtml += `سوال ${i+1} : ${correctOpt} &nbsp;&nbsp; `;
+if(resultsDetail[i].isCorrect) flowerHtml += `✓✔️  `;
+else flowerHtml += ` ✘ `;
+if((i+1)%2 === 0) flowerHtml += `<br>`;
+}
+flowerHtml += `</div><div style="margin-top: 20px; background: radial-gradient(circle, #fceab8, #fff1cf); padding: 14px; border-radius: 72px; font-size: 2rem; text-align: center;">🌸🌼🌸🌺🌷🌼🌸🌺</div>`;
+resultDiv.innerHTML = flowerHtml;
+
+// هایلایت کارت‌های درست
+for(let i=0; i<currentQuestions.length; i++) {
+const card = document.getElementById(`qCard_${i}`);
+if(card) {
+card.classList.remove('correct-highlight');
+if(resultsDetail[i].isCorrect) {
+card.classList.add('correct-highlight');
+let mark = card.querySelector('.mini-flower-mark');
+if(!mark) {
+const markSpan = document.createElement('span');
+markSpan.className = 'mini-flower-mark';
+markSpan.style.float = 'left';
+markSpan.style.fontSize = '1.3rem';
+markSpan.innerHTML = ' 🌸';
+card.appendChild(markSpan);
+}
+}
+}
+}
+// قفل کردن آزمون و ذخیره نهایی
+examCompleted = true;
+examLocked = true;
+document.querySelectorAll('input[type="radio"]').forEach(radio => radio.disabled = true);
+saveToLocalStorage(currentStudentName, true, userAnswers);
+addNameToList(COMPLETED_KEY, currentStudentName);
+if (timerInterval) clearInterval(timerInterval);
+window.removeEventListener('beforeunload', beforeUnloadHandler);
+}
+
+// شروع آزمون بعد از وارد کردن نام
+function startExam(studentName) {
+if(!studentName || studentName.trim() === "") {
+const warn = document.getElementById('loginWarning');
+warn.style.display = 'block';
+warn.innerText = "⚠️ لطفاً نام و نام خانوادگی خود را وارد کنید!";
+return false;
+}
+
+const normalizedName = studentName.trim();
+const startedNames = getNameList(STARTED_KEY);
+const completedNames = getNameList(COMPLETED_KEY);
+
+if (startedNames.includes(normalizedName) || completedNames.includes(normalizedName)) {
+document.getElementById('loginWarning').style.display = 'block';
+document.getElementById('loginWarning').innerText = "⛔ شما قبلاً در این آزمون شرکت کرده‌اید و امکان تکرار وجود ندارد. ⛔";
+return false;
+}
+
+addNameToList(STARTED_KEY, normalizedName);
+
+document.getElementById('loginWarning').style.display = 'none';
+currentStudentName = normalizedName;
+document.getElementById('displayStudentNameSpan').innerText = currentStudentName;
+
+currentQuestions = prepareQuestionsForStudent();
+userAnswers = new Array(currentQuestions.length).fill(null);
+
+renderQuestions();
+document.getElementById('loginPanel').style.display = 'none';
+document.getElementById('questionsSection').style.display = 'block';
+
+saveToLocalStorage(currentStudentName, false, userAnswers);
+examCompleted = false;
+examLocked = false;
+timeUp = false;
+
+startTimer();
+
+window.addEventListener('beforeunload', beforeUnloadHandler);
+return true;
+}
+
+function beforeUnloadHandler(e) {
+if (!examCompleted) {
+e.preventDefault();
+e.returnValue = "اگر خارج شوید، آزمون شما حذف می‌شود!";
+return "اگر خارج شوید، آزمون شما حذف می‌شود!";
+}
+}
+
+function handleExitCleanup() {
+if (!examCompleted) {
+clearAttemptStorage();
+}
+}
+
+window.onload = () => {
+const startBtn = document.getElementById('startExamBtn');
+startBtn.addEventListener('click', () => {
+const nameInput = document.getElementById('studentNameInput').value;
+startExam(nameInput);
+});
+const submitBtn = document.getElementById('checkBtn');
+if(submitBtn) {
+submitBtn.addEventListener('click', evaluateAndFlower);
+}
+};
+
+window.addEventListener('pagehide', handleExitCleanup);
+window.addEventListener('unload', handleExitCleanup);
+</script>
+</body>
+</html>
