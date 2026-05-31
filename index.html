@@ -1,15 +1,32 @@
-<script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
-<script>
-async function main() {
-    let pyodide = await loadPyodide();
-    
-    // حتی numpy و pandas هم کار میکنه!
-    await pyodide.loadPackage("numpy");
-    pyodide.runPython(`
-        import numpy as np
-        arr = np.array([1, 2, 3, 4, 5])
-        print(arr.mean())
-    `);
-}
-main();
-</script>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+</head>
+<body>
+    <h1>نتیجه:</h1>
+    <pre id="output"></pre>
+
+    <script>
+    async function main() {
+        let pyodide = await loadPyodide();
+        
+        await pyodide.loadPackage("numpy");
+        
+        pyodide.runPython(`
+            import numpy as np
+            arr = np.array([1, 2, 3, 4, 5])
+            result = arr.mean()
+            result  # این برگشت داده میشه
+        `);
+        
+        // گرفتن خروجی و نشون دادن توی صفحه
+        let result = pyodide.globals.get('result');
+        document.getElementById('output').textContent = 
+            `میانگین: ${result}`;
+    }
+    main();
+    </script>
+</body>
+</html>
